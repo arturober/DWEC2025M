@@ -1,0 +1,4 @@
+<div olMap [coordinates]="coordinates()">
+  <div olMarker [coordinates]="coordinates()"></div>
+  <div gaAutocomplete (locationChange)="changePlace($event)"></div>
+</div>
