@@ -1,0 +1,13 @@
+<load-button [loading]="loading()" (click)="startLoading()"> Haz click </load-button>
+
+<my-modal [(show)]="showModal">
+  <button footer class="py-1.5 px-3 rounded text-white bg-blue-600">Sí</button>
+  <button footer class="py-1.5 px-3 rounded text-white bg-red-600">No</button>
+  <ng-container header>Ejemplo modal</ng-container>
+  <p>Soy un texto</p>
+  <p>Soy otro texto</p>
+</my-modal>
+
+<div class="mt-4">
+  <button (click)="showModal = true" class="py-1.5 px-3 rounded text-white bg-blue-600">Abrir modal</button>
+</div>
