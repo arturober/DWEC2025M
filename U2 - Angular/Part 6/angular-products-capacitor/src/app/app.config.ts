@@ -11,22 +11,21 @@ import {
 } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { baseUrlInterceptor } from './interceptors/base-url-interceptor';
 import { provideSignalFormsConfig } from '@angular/forms/signals';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withComponentInputBinding(), withPreloading(PreloadAllModules)),
-    provideHttpClient(withInterceptors([baseUrlInterceptor]), withFetch()),
+    provideHttpClient(withInterceptors([baseUrlInterceptor])),
     provideSignalFormsConfig({
       classes: {
         'is-valid': ({state}) => state().touched() && state().valid(),
         'is-invalid': ({state}) => state().touched() && state().invalid(),
       },
-    }), provideClientHydration(withEventReplay()),
+    }),
   ],
 };
